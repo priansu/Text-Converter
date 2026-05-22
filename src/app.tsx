@@ -1,7 +1,5 @@
 import React, { useState, useCallback } from 'react';
 import CaseConverter from './components/CaseConverter';
-import AdSenseTop from './components/AdSenseTop';
-import AdSenseSidebar from './components/AdSenseSidebar';
 
 function App() {
   const [copied, setCopied] = useState<string | null>(null);
@@ -14,23 +12,20 @@ function App() {
   return (
     <div className="app">
       <div className="container">
-        <header className="header">
-          <h1>Text Case Converter</h1>
-          <p>Convert your text to different cases instantly</p>
-        </header>
+        <div className="page-layout">
+          <header className="header">
+            <h1>Text Case Converter</h1>
+            <p>Convert your text to different cases instantly</p>
+          </header>
 
-        <AdSenseTop />
-
-        <div className="main-content">
-          <div className="converter-wrapper">
+          <main className="page-content">
             <CaseConverter onCopy={handleCopy} copiedText={copied} />
-          </div>
-          <AdSenseSidebar />
-        </div>
+          </main>
 
-        <footer className="footer">
-          <p>&copy; 2026 Text Case Converter. Free online text transformation tool.</p>
-        </footer>
+          <footer className="footer">
+            <p>&copy; 2026 Text Case Converter. Free online text transformation tool.</p>
+          </footer>
+        </div>
       </div>
 
       <style>{`
@@ -41,14 +36,22 @@ function App() {
         }
 
         .container {
-          max-width: 1400px;
+          max-width: 1000px;
           margin: 0 auto;
+        }
+
+        .page-layout {
+          background: rgba(255, 255, 255, 0.08);
+          border-radius: 24px;
+          padding: 40px;
+          box-shadow: 0 24px 80px rgba(0, 0, 0, 0.18);
+          backdrop-filter: blur(10px);
         }
 
         .header {
           text-align: center;
           color: white;
-          margin-bottom: 40px;
+          margin-bottom: 30px;
           animation: slideDown 0.6s ease-out;
         }
 
@@ -64,23 +67,17 @@ function App() {
           opacity: 0.95;
         }
 
-        .main-content {
-          display: grid;
-          grid-template-columns: 1fr 300px;
-          gap: 30px;
-          margin-bottom: 40px;
-        }
-
-        .converter-wrapper {
+        .page-content {
           animation: slideUp 0.6s ease-out;
+          margin-bottom: 40px;
         }
 
         .footer {
           text-align: center;
           color: rgba(255, 255, 255, 0.8);
-          padding: 30px 20px;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-          margin-top: 40px;
+          padding: 20px 10px;
+          border-top: 1px solid rgba(255, 255, 255, 0.12);
+          margin-top: 20px;
         }
 
         @keyframes slideDown {
