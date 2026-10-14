@@ -2,52 +2,308 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Online Case Converter - Change to Uppercase, Lowercase & Title Case</title>
+    
+    <!-- Primary SEO Meta Tags -->
     <meta
-  name="description"
-  content="Free online text case converter. Convert text to uppercase, lowercase, title case, sentence case, camelCase, PascalCase, snake_case and more instantly."
-/>
-<meta name="google-site-verification" content="EVKZ46TVlsv815t7dvErb6SN3xtpA1PRrgU6TRODzYg" />
-<link rel="canonical" href="https://caseshift.netlify.app/" />
+      name="description"
+      content="Free online case converter tool. Instantly convert text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case, PascalCase, and kebab-case in your browser. 100% secure & private."
+    />
+    <meta name="keywords" content="case converter, uppercase, lowercase, title case, sentence case, camelCase, snake_case, PascalCase, kebab-case, text converter, string converter, developer tools" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="CaseConverters" />
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="google-site-verification" content="EVKZ46TVlsv815t7dvErb6SN3xtpA1PRrgU6TRODzYg" />
+    
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://caseconverters.in/" />
 
-<meta property="og:title" content="Text Case Converter – CaseShift" />
-<meta
-  property="og:description"
-  content="Free online text case converter for uppercase, lowercase, title case, sentence case, camelCase, PascalCase, snake_case and more."
-/>
-<meta property="og:url" content="https://caseshift.netlify.app/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="CaseShift" />
+    <!-- Icons & Manifest -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Text Case Converter – CaseShift" />
-<meta
-  name="twitter:description"
-  content="Convert text to uppercase, lowercase, title case, sentence case, camelCase, PascalCase, snake_case and more."
-/>
+    <!-- Pre-Hydration Theme Script to Prevent FOUC (Flash of Unstyled Content) -->
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('cc_theme');
+          var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored || (systemDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
 
-<title>Text Case Converter – Uppercase, Lowercase, Title Case & More | CaseShift</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3904628537340698"
-      crossorigin="anonymous"></script>
+    <!-- Google Fonts Preconnect & Inter / Geist / JetBrains Mono (Non-blocking font load) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://caseconverters.in/" />
+    <meta property="og:site_name" content="CaseConverters" />
+    <meta property="og:title" content="Free Online Case Converter - Change to Uppercase, Lowercase & Title Case" />
+    <meta
+      property="og:description"
+      content="Easily transform text between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case, PascalCase, and kebab-case. 100% private, client-side tool."
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://caseconverters.in/logo.svg" />
+    <meta property="og:image:width" content="500" />
+    <meta property="og:image:height" content="500" />
+    <meta property="og:image:alt" content="Case Converters Logo" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://caseconverters.in/" />
+    <meta name="twitter:title" content="Free Online Case Converter - Change to Uppercase, Lowercase & Title Case" />
+    <meta
+      name="twitter:description"
+      content="Free online text case conversion utility for writers, developers, and editors. Instant client-side conversions."
+    />
+    <meta name="twitter:image" content="https://caseconverters.in/logo.svg" />
+
+    <!-- Non-critical script deferral for Instant LCP & Core Web Vitals Hardening -->
+    <script>
+      (function() {
+        function loadDeferredResources() {
+          var adsenseScript = document.createElement('script');
+          adsenseScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3904628537340698';
+          adsenseScript.async = true;
+          adsenseScript.crossOrigin = 'anonymous';
+          document.head.appendChild(adsenseScript);
+        }
+
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadDeferredResources, { timeout: 3500 });
+        } else {
+          window.addEventListener('load', function() {
+            setTimeout(loadDeferredResources, 1200);
+          });
+        }
+      })();
+    </script>
+
+    <!-- WebApplication, Person, FAQPage, and ItemList JSON-LD Structured Data for Top 5 Ranking Signals -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://caseconverters.in/#webapp",
+          "name": "CaseConverters - Free Online Text Case Converter",
+          "url": "https://caseconverters.in/",
+          "description": "Free, privacy-first online case converter tool. Instantly convert text between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case, PascalCase, and kebab-case in your browser.",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "All modern browsers (Windows, macOS, Linux, iOS, Android)",
+          "browserRequirements": "Requires JavaScript. Requires HTML5.",
+          "softwareVersion": "2.0.0",
+          "author": {
+            "@id": "https://caseconverters.in/#author"
+          },
+          "creator": {
+            "@id": "https://caseconverters.in/#author"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Sticky floating action bar for instant casing transforms",
+            "UPPERCASE text conversion",
+            "lowercase text conversion",
+            "Title Case text conversion with small-word exclusion",
+            "Sentence case text conversion across multiple sentences",
+            "camelCase developer conversion",
+            "snake_case developer conversion",
+            "PascalCase developer conversion",
+            "kebab-case developer conversion",
+            "Live character, word, and reading-time counter",
+            "One-click copy to clipboard with toast notification",
+            "Clear text functionality",
+            "100% Client-side local processing with zero server tracking"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://caseconverters.in/#author",
+          "name": "Priansu Kumar Rai",
+          "jobTitle": "Full-Stack Engineer & Open-Source Creator",
+          "email": "mailto:priansurai@gmail.com",
+          "url": "https://www.linkedin.com/in/priansu-rai",
+          "sameAs": [
+            "https://www.linkedin.com/in/priansu-rai"
+          ],
+          "knowsAbout": [
+            "Web Performance Optimization",
+            "Technical SEO Architecture",
+            "Client-Side Algorithms",
+            "TypeScript & React Systems",
+            "String Manipulation & Casing Standards"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://caseconverters.in/#website",
+          "url": "https://caseconverters.in/",
+          "name": "CaseConverters",
+          "description": "Free Online Text Case Converter Utility",
+          "publisher": {
+            "@type": "Organization",
+            "name": "CaseConverters",
+            "url": "https://caseconverters.in/"
+          },
+          "author": {
+            "@id": "https://caseconverters.in/#author"
+          }
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://caseconverters.in/#guides-list",
+          "name": "Related Text Formatting & Technical Casing Guides",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "camelCase vs. PascalCase: Complete Developer Naming Guide",
+              "url": "https://caseconverters.in/guide/camel-case-vs-pascal-case"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "How to Format JSON Keys: camelCase vs. snake_case Best Practices",
+              "url": "https://caseconverters.in/guide/how-to-format-json-keys"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Title Case Rules for Essays, Headlines & Academic Papers",
+              "url": "https://caseconverters.in/guide/title-case-rules-for-essays"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "snake_case vs. kebab-case: REST API Design & URL Best Practices",
+              "url": "https://caseconverters.in/guide/snake-case-vs-kebab-case-in-api-design"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "Sentence Case in Modern UI Design & Digital Microcopy",
+              "url": "https://caseconverters.in/guide/sentence-case-in-modern-ui-design"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://caseconverters.in/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I convert text to snake_case?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To convert text to snake_case, type or paste your content into the Input Text editor and click the snake_case button in the floating conversion toolbar. CaseConverters instantly replaces all whitespace, dashes, and punctuation with underscores and converts every character to lowercase. Your converted string appears instantaneously in the Output Window without touching a remote server."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my text data saved on your servers?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, absolutely not. CaseConverters.in operates entirely on a 100% client-side architecture. All string manipulations, capitalization algorithms, and text metrics execute strictly inside your local browser runtime. No text, clipboard contents, or keystrokes are ever uploaded, transmitted, or logged to remote servers or third parties."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between Title Case and Sentence case?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Title Case capitalizes the first letter of all major words (nouns, verbs, adjectives, and adverbs) while keeping minor grammatical words (articles and short prepositions like 'the', 'a', 'an', 'in', 'of') in lowercase, making it the industry standard for book titles, article headlines, and marketing headers. Conversely, Sentence case capitalizes only the very first letter of the first word in a sentence and proper nouns, which is the modern standard for body text, digital microcopy, and UI buttons as prescribed by Apple and Google design guidelines."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <style>
-      * {
+      *, *::before, *::after {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
       
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-          sans-serif;
+        font-family: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        text-rendering: optimizeLegibility;
+      }
+
+      /* Critical Layout Reservations for 0.0 CLS (Cumulative Layout Shift) */
+      .app-shell {
         min-height: 100vh;
+        contain: style;
+      }
+      .global-header {
+        min-height: 62px;
+        contain: layout;
+      }
+      .hero-section {
+        min-height: 220px;
+        contain: layout;
+      }
+      .main-viewport {
+        min-height: 700px;
+        contain: layout;
+      }
+      .workspace-split {
+        min-height: 480px;
+        contain: layout;
+      }
+      .workspace-pane {
+        min-height: 480px;
+      }
+      .pane-textarea,
+      .output-display-area {
+        height: 340px !important;
+        min-height: 340px !important;
+        max-height: 340px !important;
+      }
+
+      /* Accessibility focus outlines */
+      :focus-visible {
+        outline: 2px solid #6366f1;
+        outline-offset: 2px;
       }
     </style>
   </head>

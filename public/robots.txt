@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Canonical XML Sitemap for Search Engine Crawlers
+Sitemap: https://caseconverters.in/sitemap.xml

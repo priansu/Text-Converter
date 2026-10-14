@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <rect width="100" height="100" rx="22" fill="#ffffff" />
+  <rect width="98" height="98" x="1" y="1" rx="21" fill="none" stroke="#e2e8f0" stroke-width="2" />
+  <g transform="matrix(0.475, 0, 0, 0.475, -2.25, 8.44)">
+    <path d="M70 30 L30 150 L65 150 L78 110 L122 110 L126 122 C132 108 142 98 156 94 L156 80 L110 30 Z" fill="#0052cc" />
+    <path d="M85 90 L100 45 L115 90 Z" fill="#ffffff" />
+    <path d="M110 25 L140 55 L125 55 L160 140 L175 140 L135 40 L150 40 Z" fill="#00c2ff" />
+    <path d="M150 150 C125 150 110 135 110 115 C110 95 125 80 150 80 C175 80 190 95 190 115 C190 135 175 150 150 150 Z" fill="#00c2ff" opacity="0.85"/>
+    <path d="M150 138 C135 138 125 128 125 115 C125 102 135 92 150 92 C165 92 175 102 175 115 C175 128 165 138 150 138 Z" fill="#ffffff" />
+    <path d="M162 100 L162 148 L174 148 L174 100 Z" fill="#00c2ff" />
+  </g>
+</svg>

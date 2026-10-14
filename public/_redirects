@@ -1,0 +1,9 @@
+# ====================================================================
+# Netlify 301 Permanent Redirects for CaseConverters Migration
+# Old Domain: caseshift.netlify.app
+# New Custom Domain: caseconverters.in
+# ====================================================================
+
+# Domain-level 301 Permanent Redirects (with path & query forwarding)
+https://caseshift.netlify.app/*    https://caseconverters.in/:splat    301!
+http://caseshift.netlify.app/*     https://caseconverters.in/:splat    301!

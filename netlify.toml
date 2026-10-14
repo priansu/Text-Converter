@@ -1,0 +1,26 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# 301 Permanent Redirects from legacy subdomain to new custom domain
+[[redirects]]
+  from = "https://caseshift.netlify.app/*"
+  to = "https://caseconverters.in/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://caseshift.netlify.app/*"
+  to = "https://caseconverters.in/:splat"
+  status = 301
+  force = true
+
+# HTTP Security Headers for SEO & Security Best Practices
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
