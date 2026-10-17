@@ -1,10 +1,10 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, lazy, Suspense } from 'react';
 import CaseConverter from './components/CaseConverter';
 import ThemeToggle from './components/ThemeToggle';
 import Toast from './components/Toast';
 import { GUIDES_DATA } from './data/guidesData';
-import GuideArticleView from './components/GuideArticleView';
-import AboutDeveloper from './components/AboutDeveloper';
+const GuideArticleView = lazy(() => import('./components/GuideArticleView'));
+const AboutDeveloper = lazy(() => import('./components/AboutDeveloper'));
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(() => {
@@ -201,11 +201,13 @@ export default function App() {
       {currentGuide ? (
         <main className="main-viewport">
           <div className="viewport-container">
-            <GuideArticleView
-              article={currentGuide}
-              onBackToTool={() => navigateTo('/')}
-              onSelectGuide={(slug) => navigateTo(slug)}
-            />
+            <Suspense fallback={<div style={{ minHeight: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>Loading guide...</div>}>
+              <GuideArticleView
+                article={currentGuide}
+                onBackToTool={() => navigateTo('/')}
+                onSelectGuide={(slug) => navigateTo(slug)}
+              />
+            </Suspense>
           </div>
         </main>
       ) : isGuideRoute ? (
@@ -274,7 +276,9 @@ export default function App() {
       {/* E-E-A-T "About the Developer" Section */}
       <section className="about-dev-wrapper">
         <div className="viewport-container">
-          <AboutDeveloper />
+          <Suspense fallback={<div style={{ minHeight: '120px' }} />}>
+            <AboutDeveloper />
+          </Suspense>
         </div>
       </section>
 
@@ -449,7 +453,7 @@ export default function App() {
           --border-focus: #6366f1;
           --text-primary: #0f172a;
           --text-secondary: #334155;
-          --text-muted: #64748b;
+          --text-muted: #475569;
           --accent-primary: #4f46e5;
           --accent-hover: #4338ca;
           --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
@@ -663,6 +667,7 @@ export default function App() {
           margin: 0;
           background: linear-gradient(135deg, var(--text-primary) 50%, var(--accent-primary) 100%);
           -webkit-background-clip: text;
+          background-clip: text;
           -webkit-text-fill-color: transparent;
         }
 

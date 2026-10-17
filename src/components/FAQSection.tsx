@@ -63,7 +63,7 @@ export default function FAQSection() {
         </p>
       </div>
 
-      <div className="faq-accordion-list" role="region" aria-label="Questions and Answers">
+      <div className="faq-accordion-list">
         {FAQ_DATA.map((item, idx) => {
           const isOpen = openIndices.includes(idx);
           const controlId = `faq-answer-${idx}`;
@@ -107,6 +107,7 @@ export default function FAQSection() {
                 id={controlId}
                 role="region"
                 aria-labelledby={headerId}
+                hidden={!isOpen}
                 className={`faq-answer-collapse ${isOpen ? 'expanded' : ''}`}
               >
                 <div className="faq-answer-inner">

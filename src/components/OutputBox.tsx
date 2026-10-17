@@ -126,7 +126,7 @@ export default function OutputBox({
 
         .tag-developer {
           background: rgba(14, 165, 233, 0.12);
-          color: #0284c7;
+          color: #0369a1;
           border: 1px solid rgba(14, 165, 233, 0.25);
         }
 
@@ -137,7 +137,7 @@ export default function OutputBox({
 
         .tag-specialty {
           background: rgba(168, 85, 247, 0.12);
-          color: #9333ea;
+          color: #7e22ce;
           border: 1px solid rgba(168, 85, 247, 0.25);
         }
 

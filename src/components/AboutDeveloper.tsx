@@ -7,7 +7,7 @@ export default function AboutDeveloper() {
         {/* Left: Avatar with Verified Status */}
         <div className="dev-avatar-wrapper">
           <div className="dev-avatar-ring">
-            <div className="dev-avatar-placeholder" aria-label="Developer Headshot">
+            <div className="dev-avatar-placeholder" role="img" aria-label="Developer Headshot">
               <svg
                 className="dev-silhouette"
                 width="48"
@@ -321,7 +321,7 @@ export default function AboutDeveloper() {
 
         .linkedin-btn {
           background: rgba(10, 102, 194, 0.12);
-          color: #0a66c2;
+          color: #004182;
           border: 1px solid rgba(10, 102, 194, 0.3);
         }
 

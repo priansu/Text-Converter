@@ -3,18 +3,20 @@ import React, { useEffect, useState } from 'react';
 export type ThemeMode = 'light' | 'dark';
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<ThemeMode>('dark');
+  const [theme, setTheme] = useState<ThemeMode>(() => {
+    if (typeof document !== 'undefined') {
+      const currentAttr = document.documentElement.getAttribute('data-theme') as ThemeMode | null;
+      if (currentAttr) return currentAttr;
+      try {
+        const stored = localStorage.getItem('cc_theme') as ThemeMode | null;
+        if (stored) return stored;
+      } catch (e) {}
+    }
+    return 'dark';
+  });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // 1. Check existing DOM attribute set by pre-hydration script, or localStorage, or system preference
-    const currentAttr = document.documentElement.getAttribute('data-theme') as ThemeMode | null;
-    const stored = localStorage.getItem('cc_theme') as ThemeMode | null;
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    const initialTheme: ThemeMode = currentAttr || stored || (systemDark ? 'dark' : 'light');
-    setTheme(initialTheme);
-    document.documentElement.setAttribute('data-theme', initialTheme);
     setMounted(true);
 
     // 2. Listen for system theme changes if user hasn't explicitly set a preference

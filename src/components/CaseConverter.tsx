@@ -1,12 +1,13 @@
-import React, { useState, useCallback, useMemo, useEffect } from 'react';
+import React, { useState, useCallback, useMemo, useEffect, lazy, Suspense } from 'react';
 import {
   TRANSFORMATIONS,
   TextTransformation,
 } from '../utils/textTransformations';
 import OutputBox from './OutputBox';
-import RelatedGuides from './RelatedGuides';
-import DeveloperResources from './DeveloperResources';
-import FAQSection from './FAQSection';
+
+const RelatedGuides = lazy(() => import('./RelatedGuides'));
+const DeveloperResources = lazy(() => import('./DeveloperResources'));
+const FAQSection = lazy(() => import('./FAQSection'));
 
 interface CaseConverterProps {
   onCopySuccess: (message: string, subMessage?: string) => void;
@@ -492,10 +493,14 @@ export default function CaseConverter({ onCopySuccess, onSelectGuide }: CaseConv
       </section>
 
       {/* 1. Formatting Guides Section (Directly Below Main Tool Area) */}
-      <RelatedGuides onSelectGuide={onSelectGuide} />
+      <Suspense fallback={<div style={{ minHeight: '120px' }} />}>
+        <RelatedGuides onSelectGuide={onSelectGuide} />
+      </Suspense>
 
       {/* 2. Official Developer Resources & Open Style Guides (External Authority Hub) */}
-      <DeveloperResources />
+      <Suspense fallback={<div style={{ minHeight: '120px' }} />}>
+        <DeveloperResources />
+      </Suspense>
 
       {/* 3. SEO Technical Guide: When to Use Each Casing Style */}
       <section className="guide-surface" aria-label="Casing Styles Reference and Best Practices">
@@ -747,7 +752,9 @@ export default function CaseConverter({ onCopySuccess, onSelectGuide }: CaseConv
       </section>
 
       {/* 4. Conversational FAQ Accordion Section (Targeting Long-Tail Queries) */}
-      <FAQSection />
+      <Suspense fallback={<div style={{ minHeight: '120px' }} />}>
+        <FAQSection />
+      </Suspense>
 
       <style>{`
         .converter-container {
@@ -793,7 +800,11 @@ export default function CaseConverter({ onCopySuccess, onSelectGuide }: CaseConv
         }
 
         .privacy-text strong {
-          color: #10b981;
+          color: #047857;
+        }
+
+        [data-theme="dark"] .privacy-text strong {
+          color: #34d399;
         }
 
         /* ==================================================================== */
@@ -898,7 +909,7 @@ export default function CaseConverter({ onCopySuccess, onSelectGuide }: CaseConv
         .btn-dev-action {
           background: rgba(14, 165, 233, 0.1);
           border-color: rgba(14, 165, 233, 0.25);
-          color: #0284c7;
+          color: #0369a1;
         }
 
         [data-theme="dark"] .btn-dev-action {
@@ -911,10 +922,10 @@ export default function CaseConverter({ onCopySuccess, onSelectGuide }: CaseConv
         }
 
         .btn-dev-action.active-case {
-          background: #0284c7;
-          border-color: #0284c7;
+          background: #0369a1;
+          border-color: #0369a1;
           color: #ffffff;
-          box-shadow: 0 4px 14px rgba(14, 165, 233, 0.4);
+          box-shadow: 0 4px 14px rgba(3, 105, 161, 0.4);
         }
 
         /* ==================================================================== */
@@ -984,7 +995,7 @@ export default function CaseConverter({ onCopySuccess, onSelectGuide }: CaseConv
           align-items: center;
           gap: 5px;
           background: rgba(16, 185, 129, 0.1);
-          color: #10b981;
+          color: #047857;
           font-size: 0.75rem;
           font-weight: 600;
           padding: 3px 8px;
@@ -992,9 +1003,13 @@ export default function CaseConverter({ onCopySuccess, onSelectGuide }: CaseConv
           border: 1px solid rgba(16, 185, 129, 0.25);
         }
 
+        [data-theme="dark"] .autosave-badge {
+          color: #34d399;
+        }
+
         .applied-pill {
           background: rgba(14, 165, 233, 0.12);
-          color: #0284c7;
+          color: #0369a1;
           font-size: 0.72rem;
           font-weight: 700;
           padding: 2px 7px;
@@ -1049,14 +1064,14 @@ export default function CaseConverter({ onCopySuccess, onSelectGuide }: CaseConv
         }
 
         .btn-pane-util.btn-danger {
-          color: #ef4444;
-          border-color: rgba(239, 68, 68, 0.25);
+          color: #dc2626;
+          border-color: rgba(220, 38, 38, 0.3);
           background: transparent;
         }
 
         .btn-pane-util.btn-danger:hover:not(:disabled) {
           background: rgba(239, 68, 68, 0.1);
-          border-color: #ef4444;
+          border-color: #dc2626;
         }
 
         .btn-copy-accent {
@@ -1307,7 +1322,7 @@ export default function CaseConverter({ onCopySuccess, onSelectGuide }: CaseConv
 
         .badge-code {
           background: rgba(14, 165, 233, 0.15);
-          color: #0284c7;
+          color: #0369a1;
         }
 
         [data-theme="dark"] .badge-code {
@@ -1316,7 +1331,7 @@ export default function CaseConverter({ onCopySuccess, onSelectGuide }: CaseConv
 
         .badge-dev {
           background: rgba(168, 85, 247, 0.15);
-          color: #9333ea;
+          color: #7e22ce;
         }
 
         [data-theme="dark"] .badge-dev {
